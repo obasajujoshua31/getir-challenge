@@ -40,16 +40,8 @@ const validateGetTask = (req, res, next) => {
     return sendResponse(res, BADREQUEST, CODE.FAILURE, errors.join(", "), []);
   }
 
-  if (startDateTime.getTime() > endDateTime.getTime()) {
-    appLogger.warn("start date is after end date");
-    return sendResponse(
-      res,
-      BADREQUEST,
-      CODE.FAILURE,
-      "start date is after end date",
-      []
-    );
-  }
+  req.body.minCount = Number(minCount);
+  req.body.maxCount = Number(maxCount);
 
   return next();
 };

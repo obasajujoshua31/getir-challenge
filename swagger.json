@@ -1,0 +1,129 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple task API",
+    "version": "1.0.0",
+    "title": "Simple Task API",
+    "contact": {
+      "email": "obasajujoshua31@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:5500",
+  "tags": [
+    {
+      "name": "all",
+      "description": "Operations available to all"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/tasks": {
+      "post": {
+        "tags": [
+          "all"
+        ],
+        "summary": "Get all tasks",
+        "description": "Get all tasks by a filter",
+        "operationId": "getTasks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "taskFilter",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/taskFilter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "tasks retrieved",
+            "schema": {
+              "$ref": "#/definitions/Records"
+            }
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "500": {
+            "description": "internal server occurred"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "taskFilter": {
+      "required": [
+        "endDate",
+        "maxCount",
+        "minCount",
+        "startDate"
+      ],
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "example": "2016-09-08"
+        },
+        "endDate": {
+          "type": "string",
+          "example": "2016-09-08"
+        },
+        "minCount": {
+          "type": "integer"
+        },
+        "maxCount": {
+          "type": "integer"
+        }
+      }
+    },
+    "Records": {
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Record"
+          }
+        }
+      }
+    },
+    "Record": {
+      "required": [
+        "createdAt",
+        "key",
+        "totalCount"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "totalCount": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
