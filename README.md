@@ -22,6 +22,9 @@ Steps to setup the project
    - run yarn start
 
 5. Start application at port 5500 and navigate to http://localhost:5500/api-docs for the API documentation if you are running it locally
-6. [heroku link](http://joshua-task.herokuapp.com/api-docs)
 
 `Note: If you are starting your application in a different port, go to swagger.json and change the host to the port you are using`
+
+6. [Heroku doc](http://joshua-task.herokuapp.com/api-docs)
+
+
