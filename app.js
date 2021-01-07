@@ -1,15 +1,18 @@
 const express = require("express");
 const swaggerUi = require("swagger-ui-express");
+require("dotenv").config();
 const { handleNotFound, initAppMiddlewares } = require("./app.middleware");
 const config = require("./config/config");
 const connectToDb = require("./db/connect");
 const app = express();
 const mongoose = require("mongoose");
-const port = config.appPort || 5500;
+
 const routes = require("./api/routes");
 const swaggerDoc = require("./swagger.json");
 //Initialize app middlewares
 initAppMiddlewares(app);
+
+const port = process.env.PORT || 5500;
 
 // initialize app routes
 app.use("/", routes);
