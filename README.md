@@ -2,7 +2,7 @@
 
 [![obasajujoshua31](https://circleci.com/gh/obasajujoshua31/getir-challenge.svg?style=svg)](https://app.circleci.com/pipelines/github/obasajujoshua31/getir-challenge)
 
-[![Coverage Status](https://coveralls.io/repos/github/obasajujoshua31/getir-challenge/badge.png?branch=main)](https://coveralls.io/github/obasajujoshua31/getir-challenge?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/obasajujoshua31/getir-challenge/badge.svg?branch=main)](https://coveralls.io/github/obasajujoshua31/getir-challenge?branch=main)
 
 Steps to setup the project
 
